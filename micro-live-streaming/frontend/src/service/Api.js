@@ -1,7 +1,7 @@
 import Axios from 'axios';
 
 export const base = Axios.create({
-  baseURL: `https://stream-api.fantv.world/api`,
+  baseURL: `${process.env.REACT_APP_MICRO_BACKEND_MANAGER_URL}/api`,
   headers: {
     "Content-Type": "application/json"
   }
