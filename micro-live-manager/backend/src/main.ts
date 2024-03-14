@@ -25,7 +25,7 @@ const createPeerServer = async () => {
 
   const expressAPP = express();
   const server = http.createServer(expressAPP);
-  expressAPP.use(cors(corsOptions));
+  expressAPP.use(cors());
 
   const peerServer = ExpressPeerServer(server)
   expressAPP.use(peerServer);
