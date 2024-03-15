@@ -10,7 +10,7 @@ const redisAdapter = redisIoAdapter({
 export class RedisIoAdapter extends IoAdapter {
   
   createIOServer(port: number, options?: any): any {
-    const server = super.createIOServer(port, options);
+    const server = super.createIOServer(port, {...options, cors: true});
     server.adapter(redisAdapter);
     return server;
   }

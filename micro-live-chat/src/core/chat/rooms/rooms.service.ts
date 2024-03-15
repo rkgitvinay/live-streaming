@@ -16,7 +16,7 @@ interface LiveRpc {
   findOne(data): Observable<any>
 }
 
-@WebSocketGateway({cors: true, namespace: 'room'})
+@WebSocketGateway({namespace: 'room'})
 export class RoomsService implements OnGatewayInit {
 
   @WebSocketServer()
