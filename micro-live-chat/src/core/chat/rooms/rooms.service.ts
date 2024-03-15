@@ -29,7 +29,6 @@ export class RoomsService implements OnGatewayInit {
 
   afterInit(instance: any) {
     const origins = this.config.get('SOCKET_IO_ALLOW_ORIGINS').split(',');
-    origins.push('https://livestream.fantv.world')
     const server = instance.server;
     server.origins(origins);
   }
