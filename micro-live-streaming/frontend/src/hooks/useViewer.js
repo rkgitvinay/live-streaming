@@ -35,7 +35,7 @@ const useViewer = (data) => {
       }),
       // host: process.env.REACT_APP_MICRO_GENERATOR_PEER_DOMAIN,
       // port: parseInt(process.env.REACT_APP_MICRO_GENERATOR_PEER_PORT)
-      host: 'https://peer.fantv.world',
+      host: 'peer.fantv.world',
       port: 443,
     });
 
