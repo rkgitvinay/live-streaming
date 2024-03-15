@@ -83,7 +83,8 @@ const useBroadcast = (data) => {
           iceServers: [...iceServers]
         }
       }),
-      host: process.env.REACT_APP_MICRO_GENERATOR_PEER_DOMAIN,
+      // host: process.env.REACT_APP_MICRO_GENERATOR_PEER_DOMAIN,
+      host: '3.110.132.26',
       port: parseInt(process.env.REACT_APP_MICRO_GENERATOR_PEER_PORT)
     });
 
