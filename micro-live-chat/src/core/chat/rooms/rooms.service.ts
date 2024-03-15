@@ -16,7 +16,14 @@ interface LiveRpc {
   findOne(data): Observable<any>
 }
 
-@WebSocketGateway({namespace: 'room'})
+@WebSocketGateway({
+  namespace: 'room',
+  cors: {
+    origin: 'https://livestream.fantv.world',
+    methods: ['GET', 'POST'],
+    credentials: true
+  }
+})
 export class RoomsService implements OnGatewayInit {
 
   @WebSocketServer()
