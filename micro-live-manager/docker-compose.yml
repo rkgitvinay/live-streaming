@@ -8,6 +8,8 @@ services:
     entrypoint: ./.docker/entrypoint.sh
     volumes:
       - ./backend:/backend/src
+    environment:
+      - SOCKET_IO_ALLOW_ORIGINS=https://livestream.fantv.world
     ports: 
       - "3333:3333"
       - "9000:9000"
