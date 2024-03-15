@@ -14,10 +14,10 @@ const createPeerServer = async () => {
   const corsOptions = {
     origin: function (origin, callback) {
       if (!origin) { throw new Error('Origin undefined') }
-      const ALLOW_ORIGINS = process.env.SOCKET_IO_ALLOW_ORIGINS;
+      const ALLOW_ORIGINS = 'https://livestream.fantv.world'
       const originNormalized = origin.split(':').length === 2? `${origin}:80`: origin;
       const hasOrigin = ALLOW_ORIGINS.split(',').indexOf(originNormalized) !== -1;
-      hasOrigin || ALLOW_ORIGINS === '*:*'
+      hasOrigin || originNormalized === 'https://livestream.fantv.world'
         ? callback(null, true)
         : callback(new Error('Not allowed by CORS'));
     }
@@ -25,7 +25,7 @@ const createPeerServer = async () => {
 
   const expressAPP = express();
   const server = http.createServer(expressAPP);
-  expressAPP.use(cors());
+  expressAPP.use(cors(corsOptions));
 
   const peerServer = ExpressPeerServer(server)
   expressAPP.use(peerServer);
