@@ -16,7 +16,7 @@ interface LiveRpc {
   findOne(data): Observable<any>
 }
 
-@WebSocketGateway({namespace: 'room'})
+@WebSocketGateway({cors: true, namespace: 'room'})
 export class RoomsService implements OnGatewayInit {
 
   @WebSocketServer()
@@ -28,8 +28,7 @@ export class RoomsService implements OnGatewayInit {
               private config: ConfigService) {}
 
   afterInit(instance: any) {
-    // const origins = this.config.get('SOCKET_IO_ALLOW_ORIGINS').split(',');
-    const origins = ['https://livestream.fantv.world'];
+    const origins = this.config.get('SOCKET_IO_ALLOW_ORIGINS').split(',');
     const server = instance.server;
     server.origins(origins);
   }
