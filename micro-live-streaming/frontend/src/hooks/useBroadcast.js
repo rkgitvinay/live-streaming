@@ -76,6 +76,7 @@ const useBroadcast = (data) => {
     console.log('Initialized peer connection...');
 
     const iceServers = getIceServers();
+    console.log('Ice servers: ', iceServers);
     
     peerRef.current = new Peer({
       ...(iceServers.length && {
@@ -84,8 +85,9 @@ const useBroadcast = (data) => {
         }
       }),
       // host: process.env.REACT_APP_MICRO_GENERATOR_PEER_DOMAIN,
-      host: '3.110.132.26',
-      port: parseInt(process.env.REACT_APP_MICRO_GENERATOR_PEER_PORT)
+      // port: parseInt(process.env.REACT_APP_MICRO_GENERATOR_PEER_PORT)
+      host: 'https://peer.fantv.world',
+      port: 443,
     });
 
     peerRef.current.on('open', (peer_id) => {

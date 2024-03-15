@@ -33,8 +33,10 @@ const useViewer = (data) => {
           iceServers: [...iceServers]
         }
       }),
-      host: process.env.REACT_APP_MICRO_GENERATOR_PEER_DOMAIN,
-      port: parseInt(process.env.REACT_APP_MICRO_GENERATOR_PEER_PORT)
+      // host: process.env.REACT_APP_MICRO_GENERATOR_PEER_DOMAIN,
+      // port: parseInt(process.env.REACT_APP_MICRO_GENERATOR_PEER_PORT)
+      host: 'https://peer.fantv.world',
+      port: 443,
     });
 
     const _peer = peerRef.current;
