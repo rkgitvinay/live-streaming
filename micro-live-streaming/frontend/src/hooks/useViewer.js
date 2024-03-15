@@ -15,7 +15,8 @@ const useViewer = (data) => {
   
   const socket = useMemo(() => {
     if (!start) { return null }
-    return io(`${process.env.REACT_APP_MICRO_BACKEND_MANAGER_URL}/live`);
+    // return io(`${process.env.REACT_APP_MICRO_BACKEND_MANAGER_URL}/live`);
+    return io(`https://stream-api.fantv.world/live`);
   }, [start]);
 
   const connectBroadcaster = useCallback((data) => {

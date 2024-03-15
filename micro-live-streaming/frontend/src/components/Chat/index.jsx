@@ -14,7 +14,8 @@ const Chat = (props) => {
     if (!user || user.name === "" || user.email === "") {
       return null;
     }
-    return io(`${process.env.REACT_APP_MICRO_CHAT_URL}/room`);
+    // return io(`${process.env.REACT_APP_MICRO_CHAT_URL}/room`);
+    return io(`https://stream-chat-api.fantv.world/room`);
   }, [user]);
 
   useEffect(() => {
